@@ -141,6 +141,10 @@
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="tablero.h" />
+		<Unit filename="vector.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="vector.h" />
 		<Extensions>
 			<lib_finder disable_auto="1" />
 		</Extensions>
