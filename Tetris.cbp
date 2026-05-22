@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6" />
+	<Project>
+		<Option title="Tetris" />
+		<Option pch_mode="2" />
+		<Option compiler="gcc" />
+		<Build>
+			<Target title="Debug">
+				<Option output="bin/Debug/Tetris" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj/Debug/" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-g" />
+					<Add directory="include" />
+				</Compiler>
+				<Linker>
+					<Add option="-lgbt" />
+					<Add directory="lib" />
+				</Linker>
+			</Target>
+			<Target title="Release">
+				<Option output="bin/Release/Tetris" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj/Release/" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-O2" />
+				</Compiler>
+				<Linker>
+					<Add option="-s" />
+				</Linker>
+			</Target>
+		</Build>
+		<Compiler>
+			<Add option="-Wall" />
+		</Compiler>
+		<Unit filename="args.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="args.h" />
+		<Unit filename="cadena.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="cadena.h" />
+		<Unit filename="config.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="config.h" />
+		<Unit filename="config_archivo.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="config_archivo.h" />
+		<Unit filename="dibujo.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="dibujo.h" />
+		<Unit filename="dibujo_menu.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="dibujo_menu.h" />
+		<Unit filename="estadisticas.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="estadisticas.h" />
+		<Unit filename="fuente.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="fuente.h" />
+		<Unit filename="gameover.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="gameover.h" />
+		<Unit filename="historial.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="historial.h" />
+		<Unit filename="ingreso_nombre.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="ingreso_nombre.h" />
+		<Unit filename="juego.h" />
+		<Unit filename="juego_dibujo.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="juego_dibujo_clasico.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="juego_dibujo_clasico.h" />
+		<Unit filename="juego_dibujo_dx.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="juego_dibujo_dx.h" />
+		<Unit filename="juego_dibujo_interna.h" />
+		<Unit filename="juego_logica.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="juego_logica_clasico.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="juego_logica_clasico.h" />
+		<Unit filename="juego_logica_dx.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="juego_logica_dx.h" />
+		<Unit filename="juego_logica_interna.h" />
+		<Unit filename="layout.h" />
+		<Unit filename="main.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="menu.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="menu.h" />
+		<Unit filename="movimiento.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="movimiento.h" />
+		<Unit filename="pausa.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="pausa.h" />
+		<Unit filename="pieza.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="pieza.h" />
+		<Unit filename="presentacion.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="presentacion.h" />
+		<Unit filename="resolucion.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="resolucion.h" />
+		<Unit filename="savegame.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="savegame.h" />
+		<Unit filename="tablero.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="tablero.h" />
+		<Extensions>
+			<lib_finder disable_auto="1" />
+		</Extensions>
+	</Project>
+</CodeBlocks_project_file>
