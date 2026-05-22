@@ -36,6 +36,12 @@ static const tLayoutResolucion LAYOUT_CGA = {
     .gameover_y2             = 160,
     .gameover_escala_texto   = 3,
 
+    .salir_x1                = 60,
+    .salir_y1                = 56,
+    .salir_x2                = 290,
+    .salir_y2                = 160,
+    .salir_escala_texto      = 2,
+
     .stats_x1                = 6,
     .stats_y1                = 17,
     .stats_x2                = 60,
@@ -66,6 +72,12 @@ static const tLayoutResolucion LAYOUT_VGA = {
     .gameover_x2             = 550,
     .gameover_y2             = 350,
     .gameover_escala_texto   = 5,
+
+    .salir_x1                = 120,
+    .salir_y1                = 152,
+    .salir_x2                = 580,
+    .salir_y2                = 350,
+    .salir_escala_texto      = 4,
 
     .stats_x1                = 10,
     .stats_y1                = 74,

@@ -46,6 +46,11 @@ typedef struct
     int gameover_x2, gameover_y2;
     int gameover_escala_texto;
 
+    /* ── Panel Confirmación de salida ──────────────────────── */
+    int salir_x1, salir_y1;
+    int salir_x2, salir_y2;
+    int salir_escala_texto;
+
     /* ── Panel de Estadísticas (stats) ─────────────────────── */
     int stats_x1, stats_y1;
     int stats_x2, stats_y2;

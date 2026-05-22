@@ -1,22 +1,5 @@
 /*
- * juego_dibujo.c — Helpers compartidos y despachador de modos
- *
- * Misma estructura que juego_logica.c:
- *
- *   1. Helpers de dibujo usados por ambos modos (bloques, tablero, HUD, estadísticas).
- *
- *   2. renderizar_base(): ensambla los elementos comunes.
- *
- *   3. Dispatcher: juego_dibujar y juego_dibujar_pantalla_game_over
- *                  eligen qué modo renderizar con un switch.
- *
- * ─── Para agregar un nuevo modo ──────────────────────────────────
- *   1. Crear juego_dibujo_NUEVO.h y juego_dibujo_NUEVO.c con la
- *      función nuevo_dibujar().
- *   2. Agregar #include "juego_dibujo_NUEVO.h" arriba.
- *   3. Agregar un case en juego_dibujar() y
- *      juego_dibujar_pantalla_game_over() abajo.
- * ─────────────────────────────────────────────────────────────────
+ * juego_dibujo.c — Helpers compartidos y switch de modos
  */
 
 #include "juego_dibujo_interna.h"
@@ -25,6 +8,7 @@
 #include "cadena.h"
 #include "dibujo.h"
 #include "gameover.h"
+#include "confirmacion_salida.h"
 #include "estadisticas.h"
 #include "layout.h"
 #include "GBT/gbt.h"
@@ -432,6 +416,19 @@ void juego_dibujar_pantalla_game_over(const tEstadoJuego *estado, int mostrar_in
     int mejor_puntaje = estadisticas_obtener_mejor_puntaje(estado->nombre_jugador, estado->modo);
 
     gameover_dibujar(estado->puntuacion, mejor_puntaje, mostrar_instrucciones);
+
+    gbt_volcar_backbuffer();
+}
+
+void juego_dibujar_pantalla_confirmacion(const tEstadoJuego *estado, const tPantallaConfirmacion *c)
+{
+    switch (estado->modo)
+    {
+        case 1:  dx_dibujar(estado);      break;
+        default: clasico_dibujar(estado); break;
+    }
+
+    confirmacion_salida_dibujar(c);
 
     gbt_volcar_backbuffer();
 }

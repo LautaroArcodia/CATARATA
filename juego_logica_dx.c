@@ -6,7 +6,6 @@
 /*
  * Modo DX
  *
- * Idéntica estructura a juego_logica_clasico.c.
  * La única diferencia: usa las funciones con sufijo _dx de movimiento.h,
  * que implementan el tablero circular (los minos que salen por un borde
  * aparecen del otro lado en lugar de bloquear el movimiento).
@@ -17,7 +16,7 @@ ResultadoJuego dx_actualizar(tEstadoJuego *estado)
     gbt_procesar_entrada();
 
     if (gbt_tecla_presionada(GBTK_p))      return JUEGO_PAUSAR;
-    if (gbt_tecla_presionada(GBTK_ESCAPE)) return JUEGO_VOLVER;
+    if (gbt_tecla_presionada(GBTK_ESCAPE)) return JUEGO_PEDIR_GUARDAR;
 
     procesar_cheat_puntos(estado);
 

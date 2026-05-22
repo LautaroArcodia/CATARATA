@@ -20,16 +20,18 @@
 #include "GBT/gbt.h"
 #include "tablero.h"
 #include "movimiento.h"
+#include "confirmacion_salida.h"
 
 #define PUNTOS_POR_CELDA_MANUAL       1
 #define PUNTOS_POR_CELDA_INSTANTANEA  2
 
 typedef enum
 {
-    JUEGO_CONTINUAR = 0,
-    JUEGO_TERMINADO = 1,
-    JUEGO_VOLVER    = 2,
-    JUEGO_PAUSAR    = 3
+    JUEGO_CONTINUAR      = 0,
+    JUEGO_TERMINADO      = 1,
+    JUEGO_VOLVER         = 2,
+    JUEGO_PAUSAR         = 3,
+    JUEGO_PEDIR_GUARDAR  = 4
 } ResultadoJuego;
 
 typedef struct
@@ -71,5 +73,6 @@ ResultadoJuego juego_actualizar(tEstadoJuego *estado);
 void           juego_dibujar(const tEstadoJuego *estado, int ancho, int alto);
 void           juego_destruir(tEstadoJuego *estado);
 void           juego_dibujar_pantalla_game_over(const tEstadoJuego *estado, int mostrar_instrucciones);
+void           juego_dibujar_pantalla_confirmacion(const tEstadoJuego *estado, const tPantallaConfirmacion *c);
 
 #endif /* JUEGO_H */

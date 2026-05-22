@@ -147,6 +147,7 @@ typedef enum
     ESTADO_CONFIGURACION,
     ESTADO_HISTORIAL,
     ESTADO_INGRESO_NOMBRE,
+    ESTADO_CONFIRMAR_SALIDA,
     ESTADO_JUEGO,
     ESTADO_PAUSA,
     ESTADO_GAME_OVER,
@@ -199,6 +200,7 @@ int main(int argc, char *argv[])
     tEstadoJuego          estado_juego;
     tPantallaGameOver     pantalla_gameover;
     PantallaPausa         pantalla_pausa;
+    tPantallaConfirmacion pantalla_confirmacion;
 
     presentacion_iniciar(&pantalla_presentacion, PANTALLA_ANCHO, PANTALLA_ALTO);
 
@@ -213,6 +215,7 @@ int main(int argc, char *argv[])
     ResultadoJuego         resultado_juego;
     ResultadoPausa         resultado_pausa;
     eResultadoGameOver     resultado_gameover;
+    eResultadoConfirmacion resultado_confirmacion;
     eResolucion            nueva_resolucion;
     int                    nueva_paleta;
     int                    nueva_velocidad;
@@ -383,6 +386,11 @@ int main(int argc, char *argv[])
                     pausa_iniciar(&pantalla_pausa);
                     estado_actual = ESTADO_PAUSA;
                 }
+                else if (resultado_juego == JUEGO_PEDIR_GUARDAR)
+                {
+                    confirmacion_salida_iniciar(&pantalla_confirmacion);
+                    estado_actual = ESTADO_CONFIRMAR_SALIDA;
+                }
                 else if (resultado_juego == JUEGO_VOLVER)
                 {
                     juego_destruir(&estado_juego);
@@ -436,6 +444,35 @@ int main(int argc, char *argv[])
                     juego_destruir(&estado_juego);
                     presentacion_iniciar(&pantalla_presentacion, PANTALLA_ANCHO, PANTALLA_ALTO);
                     estado_actual = ESTADO_PRESENTACION;
+                }
+                break;
+
+            /* ─────────── CONFIRMAR SALIDA ─────────── */
+            case ESTADO_CONFIRMAR_SALIDA:
+
+                resultado_confirmacion = confirmacion_salida_actualizar(&pantalla_confirmacion);
+
+                juego_dibujar_pantalla_confirmacion(&estado_juego, &pantalla_confirmacion);
+
+                if (resultado_confirmacion == CONF_SALIDA_GUARDAR_Y_SALIR)
+                {
+                    savegame_guardar(&estado_juego);
+                    confirmacion_salida_destruir(&pantalla_confirmacion);
+                    juego_destruir(&estado_juego);
+                    menu_iniciar(&pantalla_menu);
+                    estado_actual = ESTADO_MENU;
+                }
+                else if (resultado_confirmacion == CONF_SALIDA_SALIR_SIN_GUARDAR)
+                {
+                    confirmacion_salida_destruir(&pantalla_confirmacion);
+                    juego_destruir(&estado_juego);
+                    menu_iniciar(&pantalla_menu);
+                    estado_actual = ESTADO_MENU;
+                }
+                else if (resultado_confirmacion == CONF_SALIDA_CANCELAR)
+                {
+                    confirmacion_salida_destruir(&pantalla_confirmacion);
+                    estado_actual = ESTADO_JUEGO;
                 }
                 break;
 

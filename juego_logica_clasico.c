@@ -14,7 +14,7 @@ ResultadoJuego clasico_actualizar(tEstadoJuego *estado)
     gbt_procesar_entrada();
 
     if (gbt_tecla_presionada(GBTK_p))      return JUEGO_PAUSAR;
-    if (gbt_tecla_presionada(GBTK_ESCAPE)) return JUEGO_VOLVER;
+    if (gbt_tecla_presionada(GBTK_ESCAPE)) return JUEGO_PEDIR_GUARDAR;
 
     /* Cheat: tecla C suma 1000 puntos */
     procesar_cheat_puntos(estado);
